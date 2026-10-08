@@ -21,6 +21,14 @@ Click Bebo, tell him what you need, and follow the work as it happens. He can in
 
 Bebo is an early project with public source and contributions welcome. His own code uses the ISC license; the bundled avatar has **separate noncommercial restrictions**. See [Licensing and credits](#licensing-and-credits) before reusing the artwork.
 
+## Meet Bebo in 45 seconds
+
+[![Watch Bebo's animated introduction](docs/media/Bebo-poster.jpg)](https://github.com/Akak0o0y/bebo/blob/main/docs/media/Bebo-45s.mp4)
+
+[▶ Watch the introduction](https://github.com/Akak0o0y/bebo/blob/main/docs/media/Bebo-45s.mp4) · [Download the video](https://github.com/Akak0o0y/bebo/releases/download/v1.1.1/Bebo-45s.mp4) · [English subtitles](docs/media/Bebo-45s.srt)
+
+*Deep male narration, an instrumental soundtrack, and a controlled example showing a checklist created and verified by Bebo. Model decisions are scripted; the file operations are real. [Film details and credits](docs/media/README.md).*
+
 ## What Bebo can do
 
 | Feature | How it works |
