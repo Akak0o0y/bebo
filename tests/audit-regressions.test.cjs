@@ -7,6 +7,9 @@ const { createPhoneServer } = require('../electron/phone-server.cjs');
 const { TaskJournal } = require('../electron/task-journal.cjs');
 const { FileTools } = require('../electron/file-tools.cjs');
 
+// Keep targets and fault-injection paths in the same canonical namespace.
+const temporary = async label => fs.realpath(await fs.mkdtemp(path.join(os.tmpdir(), `bebo-audit-${label}-`)));
+
 async function phone(onControl, now) {
   const server = await createPhoneServer({ root: path.resolve('dist'), getState: () => ({}), onControl, now });
   const invite = server.pairing.offer(), claim = server.pairing.request(invite.token, 'Audit phone', 'audit_phone_nonce_123');
@@ -49,7 +52,7 @@ test('Stop remains available when phone command receipt capacity is full', async
 });
 
 test('invalid persisted task shapes are quarantined before rendering and never overwritten', async () => {
-  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'bebo-audit-history-'));
+  const root = await temporary('history');
   const file = path.join(root, 'work-history.json');
   const source = JSON.stringify([{ id: 'broken', events: [null], plan: null, stats: { tokens: 'oops' } }]);
   await fs.writeFile(file, source);
@@ -61,14 +64,14 @@ test('invalid persisted task shapes are quarantined before rendering and never o
 });
 
 test('text tools refuse invalid UTF-8 instead of silently corrupting an edit', async () => {
-  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'bebo-audit-encoding-'));
+  const root = await temporary('encoding');
   const target = path.join(root, 'legacy.txt');
   await fs.writeFile(target, Buffer.from([0x63, 0x61, 0x66, 0xe9]));
   await assert.rejects(new FileTools(() => [root]).read(target), /UTF-8/);
 });
 
 test('an interrupted file write preserves the previous file and removes its temporary file', async () => {
-  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'bebo-audit-write-'));
+  const root = await temporary('write');
   const target = path.join(root, 'note.txt'), tools = new FileTools(() => [root]);
   await fs.writeFile(target, 'Original human content');
   const before = await tools.read(target), originalWrite = fs.writeFile;
@@ -86,7 +89,7 @@ test('an interrupted file write preserves the previous file and removes its temp
 });
 
 test('edits made while Bebo prepares a replacement win over the stale replacement', async () => {
-  const root = await fs.mkdtemp(path.join(os.tmpdir(), 'bebo-audit-conflict-'));
+  const root = await temporary('conflict');
   const target = path.join(root, 'note.txt'), tools = new FileTools(() => [root]);
   await fs.writeFile(target, 'Original'); const before = await tools.read(target), originalWrite = fs.writeFile;
   fs.writeFile = async (file, ...args) => {

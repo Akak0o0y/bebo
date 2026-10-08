@@ -11,7 +11,8 @@ const { AgentSession } = require('../electron/agent-session.cjs');
 const { TaskJournal } = require('../electron/task-journal.cjs');
 const { redact } = require('../electron/terminal-runner.cjs');
 
-const temporary = () => fs.mkdtemp(path.join(os.tmpdir(), 'bebo-adaptive-'));
+// Runner TEMP may use an alias or 8.3 name. File tools consume canonical roots.
+const temporary = async () => fs.realpath(await fs.mkdtemp(path.join(os.tmpdir(), 'bebo-adaptive-')));
 const call = (name, args) => ({ model: 'gpt-6-luna', usage: { input_tokens: 100, output_tokens: 20 }, output: [{ type: 'function_call', call_id: Math.random().toString(36), name, arguments: JSON.stringify(args) }] });
 function fixture(request, execute = async () => ({ status: 'success', summary: 'Observed.', verifies: true, data: { exists: true }, artifacts: [], next_actions: [] })) {
   return new AgentSession({ prompt: 'Inspect the requested file.', settings: { value: { maxSteps: 15, maxMinutes: 1, maxCostUsd: .5, terminal: 'ask', roots: [] } }, request, runtime: { execute, terminal: { cancel() {} } } });
