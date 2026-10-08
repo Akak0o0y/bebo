@@ -1,0 +1,29 @@
+ISC License
+
+Copyright (c) 2026 Akak0o0y and Bebo contributors
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Scope: this license applies to Bebo's original code and documentation.
+It does not relicense third-party code, model weights, or artwork.
+
+The vendored Aora / Emotion Ball engine and emotion data in
+src/vendor/aora-bot, its visual designs, and derived avatar artwork
+(including public/bebo.svg, public/bebo-touch.png, build/icon.* and
+avatar images in documentation) retain their separate licenses.
+See public/vendor/aora/LICENSE, LICENSE-COMMERCIAL.md, NOTICE.md,
+OPENAGENTS-LICENSE and PROVENANCE.md. The ball-character visual designs
+prohibit commercial use.
+
+Kokoro and cloudflared retain their upstream Apache-2.0 licenses.
+Dependency and bundled-asset licenses remain applicable to their materials.

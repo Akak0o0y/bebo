@@ -1,0 +1,2 @@
+export const motionTokens = { duration: { fast: .18, normal: .35, slow: .6, breath: 3.8, listen: 1.6, think: 2.6, work: 1.1, celebrate: 1.35, wave: 1.7, dance: 1.8, sleep: 4.8, blink: .13, blinkGap: 4800, reaction: 4200, idleSleep: 45000 }, scale: { press: .96, pop: 1.03 }, easing: { soft: 'easeInOut' as const }, gaze: { x: 7, y: 4, tilt: 3 }, stagger: .08 };
+export const springs = { gentle: { type: 'spring' as const, stiffness: 120, damping: 14 }, snappy: { type: 'spring' as const, stiffness: 300, damping: 30 } };

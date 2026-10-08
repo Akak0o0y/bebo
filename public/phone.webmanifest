@@ -1,0 +1,1 @@
+{"name":"Bebo — your little remote","short_name":"Bebo","id":"/?phone=1","start_url":"/?phone=1","scope":"/","display":"standalone","background_color":"#f7f3eb","theme_color":"#f7f3eb","icons":[{"src":"/bebo.svg","sizes":"any","type":"image/svg+xml","purpose":"any"},{"src":"/bebo-touch.png","sizes":"256x256","type":"image/png","purpose":"any"}]}

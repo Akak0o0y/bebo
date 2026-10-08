@@ -1,0 +1,51 @@
+name: Bug report
+description: Help reproduce a problem with Bebo.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "For a vulnerability, use SECURITY.md. Remove keys, pairing links, private file contents, and identifying paths from shared material."
+  - type: input
+    id: version
+    attributes:
+      label: Bebo version
+      placeholder: "1.1.1 or commit SHA"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Windows / browser / phone version
+      placeholder: "Windows 11 x64; Chrome; iOS and Safari if relevant"
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where does it happen?
+      options:
+        - Packaged Windows app
+        - Electron from source
+        - Browser preview
+        - Phone controller
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Use a minimal disposable example, including relevant permission settings.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized logs or screenshots
+      description: State whether model responses were mocked or real. Do not upload app profile files or credentials.

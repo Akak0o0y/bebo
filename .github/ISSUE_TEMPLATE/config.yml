@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Private security report
+    url: https://github.com/Akak0o0y/bebo/security/advisories/new
+    about: Report a vulnerability without exposing details in a public issue.
+  - name: Contributor guide
+    url: https://github.com/Akak0o0y/bebo/blob/main/CONTRIBUTING.md
+    about: Setup, testing, scope, and licensing guidance.

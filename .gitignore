@@ -1,0 +1,16 @@
+node_modules/
+dist/
+release/
+test-results/
+playwright-report/
+artifacts/
+.env*
+*.log
+build/cloudflared.exe
+build/cloudflared-*.tmp
+build/voice/
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

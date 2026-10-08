@@ -1,0 +1,8 @@
+const test=require('node:test');const assert=require('node:assert/strict');
+const {validateAction,ApprovalGate}=require('../electron/policy.cjs');
+const action={type:'click',x:200,y:300,text:'',reason:'Click the Chrome icon'};
+test('rejects unknown operations and out of screen coordinates',()=>{for(const bad of [{...action,type:'shell'},{...action,x:-1},{...action,y:1001},{...action,x:NaN},{...action,y:2.5}])assert.throws(()=>validateAction(bad));});
+test('constrains keyboard combinations and scroll directions',()=>{assert.throws(()=>validateAction({...action,type:'key',text:'WIN+R'}));assert.throws(()=>validateAction({...action,type:'scroll',text:'90000'}));assert.equal(validateAction({...action,type:'key',text:'WIN+E'}).text,'WIN+E');});
+test('approval can only execute once and must match the pending ID',()=>{const gate=new ApprovalGate();const step=gate.issue(action,1,{});assert.throws(()=>gate.consume('forged'));assert.equal(gate.consume(step.id).action.type,'click');assert.throws(()=>gate.consume(step.id));});
+test('replacement, expiry, and cancellation invalidate approvals',()=>{const gate=new ApprovalGate();const first=gate.issue(action,1,{});const second=gate.issue(action,2,{});assert.throws(()=>gate.consume(first.id));gate.pending.expires=0;assert.throws(()=>gate.consume(second.id));const third=gate.issue(action,3,{});gate.clear();assert.throws(()=>gate.consume(third.id));});
+test('requires bounded explanations and literal text',()=>{assert.throws(()=>validateAction({...action,reason:''}));assert.throws(()=>validateAction({...action,text:'x'.repeat(4001)}));assert.throws(()=>validateAction({...action,text:null}));});

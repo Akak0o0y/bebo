@@ -1,0 +1,7 @@
+:root{color-scheme:dark;font-family:'Segoe UI',sans-serif}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;user-select:none}
+.cancel-tab{box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:10px;width:132px;height:36px;padding:0 15px;border:1px solid #ffffff36;border-top:0;border-radius:0 0 12px 12px;background:linear-gradient(180deg,#090909,#202020);color:#fff;font:500 12px/1 'Segoe UI',sans-serif;letter-spacing:.15px;cursor:pointer;box-shadow:inset 0 -1px 0 #ffffff0d;transition:background 140ms,color 140ms}
+.stop-mark{width:6px;height:6px;border-radius:1.5px;background:#fafafa;box-shadow:0 0 8px #ffffff30}
+.cancel-cross{margin-left:auto;color:#b6b6b6;font-size:16px;font-weight:300}
+.cancel-tab:hover{background:linear-gradient(180deg,#191919,#383838)}.cancel-tab:hover .cancel-cross{color:#fff}.cancel-tab:active{background:#080808}.cancel-tab:focus-visible{outline:2px solid #fff;outline-offset:-4px}.cancel-tab:disabled{cursor:default;color:#aaa}
+@media(prefers-reduced-motion:reduce){.cancel-tab{transition:none}}

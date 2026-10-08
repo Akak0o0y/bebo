@@ -1,0 +1,3 @@
+const {app,BrowserWindow}=require('electron');
+app.whenReady().then(()=>{const win=new BrowserWindow({width:600,height:350,x:100,y:100,webPreferences:{contextIsolation:true,nodeIntegration:false}});win.loadURL('data:text/html,'+encodeURIComponent('<title>Bebo input verification</title><body style="font:18px Segoe UI;padding:40px;background:#f2ecdf"><h2>Bebo input verification</h2><p>This temporary window tests Bebo’s Windows input bridge.</p><textarea aria-label="Test input" style="width:450px;height:80px"></textarea></body>'));win.show();win.focus();});
+app.on('window-all-closed',()=>app.quit());

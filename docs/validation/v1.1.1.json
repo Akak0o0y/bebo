@@ -1,0 +1,70 @@
+{
+  "version": "1.1.1",
+  "recordedAt": "2026-10-07T23:52:27.123Z",
+  "platform": "Windows x64",
+  "sourceAudit": {
+    "backendTestsPassed": 47,
+    "browserCasesValidated": 45,
+    "nativeScenariosPassed": 16,
+    "providerResponses": "Controlled fixtures; not live inference"
+  },
+  "package": {
+    "artifact": "Bebo-1.1.1.exe",
+    "bytes": 827287878,
+    "sha256": "9d5956f236eef16810053dce7e4720aadd2e6af78898d592ade0a49d13a54036",
+    "applicationFilesVerified": 55,
+    "nativeResourcesVerified": 10,
+    "checks": [
+      {
+        "test": "desktop-smoke.cjs",
+        "exitCode": 0,
+        "durationSeconds": 2.85
+      },
+      {
+        "test": "adaptive-native-smoke.cjs",
+        "exitCode": 0,
+        "durationSeconds": 11.63
+      },
+      {
+        "test": "reliability-native-smoke.cjs",
+        "exitCode": 0,
+        "durationSeconds": 13.19
+      },
+      {
+        "test": "overlay-recovery-native-smoke.cjs",
+        "exitCode": 0,
+        "durationSeconds": 2.73
+      },
+      {
+        "test": "control-border-native-smoke.cjs",
+        "exitCode": 0,
+        "durationSeconds": 8.56
+      },
+      {
+        "test": "voice-native-smoke.cjs",
+        "exitCode": 0,
+        "durationSeconds": 17.94
+      },
+      {
+        "test": "single-instance-native-smoke.cjs",
+        "exitCode": 0,
+        "durationSeconds": 1.55
+      },
+      {
+        "test": "phone-live-smoke.cjs",
+        "exitCode": 0,
+        "durationSeconds": 15.68
+      },
+      {
+        "test": "portable-launch-smoke.cjs",
+        "exitCode": 0,
+        "durationSeconds": 27.38
+      }
+    ]
+  },
+  "remainingAcceptance": [
+    "Live Luna inference and transcription quality",
+    "Physical iPhone Safari behavior",
+    "Existing installed-profile upgrade and taskbar migration"
+  ]
+}
